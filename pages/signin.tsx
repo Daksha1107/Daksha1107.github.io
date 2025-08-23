@@ -80,7 +80,7 @@ export default function SigninPage() {
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">
-            Don't have an account?{' '}
+            Don&apos;t have an account?{' '}
             <Link href="/signup" className="font-medium text-primary-600 hover:text-primary-500">
               Sign up
             </Link>
@@ -174,7 +174,7 @@ export default function SigninPage() {
           <div className="text-xs text-gray-500 text-center">
             Make sure your email is verified before signing in.
             <br />
-            Check your email for the verification link if you haven't verified yet.
+            Check your email for the verification link if you haven&apos;t verified yet.
           </div>
         </form>
       </div>

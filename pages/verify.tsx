@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { useRouter } from 'next/router'
 import Link from 'next/link'
 import toast from 'react-hot-toast'
@@ -34,9 +34,9 @@ export default function VerifyPage() {
       // No token or userId and not showing pending state
       setVerificationState('error')
     }
-  }, [token, userId, action])
+  }, [token, userId, action, handleEmailVerification])
 
-  const handleEmailVerification = async (verificationToken: string, verificationUserId: string) => {
+  const handleEmailVerification = useCallback(async (verificationToken: string, verificationUserId: string) => {
     try {
       setVerificationState('loading')
       
@@ -61,7 +61,7 @@ export default function VerifyPage() {
       setVerificationState('error')
       toast.error('Verification failed. Please try again.')
     }
-  }
+  }, [])
 
   const handleResendVerification = async () => {
     if (!userEmail) {
@@ -180,7 +180,7 @@ export default function VerifyPage() {
               Check your email
             </h2>
             <p className="mt-2 text-gray-600">
-              We've sent a verification link to:
+              We&apos;ve sent a verification link to:
             </p>
             {userEmail && (
               <p className="mt-1 text-sm font-medium text-gray-900 bg-gray-100 inline-block px-3 py-1 rounded">
@@ -206,7 +206,7 @@ export default function VerifyPage() {
                 </button>
               </div>
               <div className="text-sm text-gray-500">
-                Didn't receive the email? Check your spam folder or{' '}
+                Didn&apos;t receive the email? Check your spam folder or{' '}
                 <Link href="/signup" className="text-primary-600 hover:text-primary-500 font-medium">
                   sign up again
                 </Link>
