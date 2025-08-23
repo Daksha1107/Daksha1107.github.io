@@ -1,0 +1,53 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    @apply bg-background text-white font-sans antialiased;
+    font-feature-settings: "cv11", "ss01";
+    font-variation-settings: "opsz" 32;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@layer components {
+  .glass-panel {
+    @apply bg-glass-light backdrop-blur-md border border-white/10 shadow-glass;
+  }
+
+  .glass-button {
+    @apply bg-glass-medium hover:bg-glass-heavy backdrop-blur-sm border border-white/20 
+           transition-all duration-200 hover:scale-105 active:scale-95;
+  }
+
+  .accent-glow {
+    @apply shadow-accent-glow;
+  }
+
+  .text-gradient {
+    @apply bg-gradient-to-r from-white to-white/80 bg-clip-text text-transparent;
+  }
+
+  .message-user {
+    @apply bg-accent/90 text-white ml-auto max-w-[80%] rounded-2xl rounded-tr-md px-4 py-3;
+  }
+
+  .message-bot {
+    @apply bg-glass-medium border border-white/10 mr-auto max-w-[80%] rounded-2xl rounded-tl-md px-4 py-3;
+  }
+}
+
+@layer utilities {
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+}
